@@ -3,9 +3,9 @@ import NavbarAdmin from "../../../components/NavbarAdmin";
 import Footer from "../../../components/Footer";
 import SideBar from "../../../components/Sidebar";
 import * as Icon from "react-bootstrap-icons";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import newsService from "../../../services/newsService";
+import topsisService from "../../../services/topsisService";
 
 export default class HistoryUser extends Component {
   constructor(props) {
@@ -13,20 +13,22 @@ export default class HistoryUser extends Component {
 
     this.state = {
       isSidebarActive: true,
-      listBerita: [],
+      listUser: [],
+      isDetail: false,
     };
   }
 
   componentDidMount = () => {
     this.handleGetAllNews();
+    localStorage.removeItem("guest_id");
   };
 
   handleGetAllNews = async () => {
-    const response = await newsService.getAllNews();
+    const response = await topsisService.getAllUserTopsis();
 
     if (response.success) {
       this.setState({
-        listBerita: response.data,
+        listUser: response.data,
       });
     }
   };
@@ -45,11 +47,20 @@ export default class HistoryUser extends Component {
     }
   };
 
+  handleToDetailPage = (id) => {
+    localStorage.setItem("guest_id", id);
+    this.setState({
+      isDetail: true,
+    });
+  };
+
   render() {
-    const { isSidebarActive, listBerita } = this.state;
+    const { isSidebarActive, listUser, isDetail } = this.state;
 
     return (
       <div>
+        {isDetail && <Navigate to="/admin-detail-history" />}
+
         <div className="wrapper">
           {isSidebarActive ? <SideBar /> : <></>}
           <div className="main">
@@ -66,47 +77,32 @@ export default class HistoryUser extends Component {
               <h2>History User</h2>
 
               <div style={{ marginRight: "30px" }}>
-                <table className="table">
-                  <thead className="text-center">
+                <table className="table text-center">
+                  <thead>
                     <tr>
                       <th>No</th>
-                      <th>Judul</th>
-                      <th>Isi Berita</th>
-                      <th>Thumbnail</th>
+                      <th>Guest Id</th>
+                      <th>Nama Topsis</th>
+                      <th>Topsis Score</th>
                       <th>Action</th>
                     </tr>
                   </thead>
 
                   <tbody>
-                    {listBerita.map((data, index) => (
+                    {listUser.map((data, index) => (
                       <tr key={index}>
                         <td>{index + 1}</td>
-                        <td>{data.headline}</td>
-                        <td>{data.isi_berita}</td>
+                        <td>{data.guest_id}</td>
+                        <td>{data.nameTopsis}</td>
+                        <td>{data.topsis_score}</td>
                         <td>
-                          <img
-                            src={data.thumbnail}
-                            height="60"
-                            width="60"
-                            alt=""
-                          />
-                        </td>
-                        <td>
-                          <div className="d-flex">
+                          <div className="d-flex justify-content-center">
                             <Button
-                              onClick={() => this.handleOpenModalEdit(data.id)}
+                              onClick={() => this.handleToDetailPage(data.guest_id)}
                               variant="warning"
+                              title="detail"
                             >
-                              <Icon.Pen />
-                            </Button>
-                            <Button
-                              onClick={() =>
-                                this.handleOpenModalDelete(data.id)
-                              }
-                              variant="danger"
-                              style={{ marginLeft: "5px" }}
-                            >
-                              <Icon.Trash />
+                              <Icon.InfoCircle />
                             </Button>
                           </div>
                         </td>

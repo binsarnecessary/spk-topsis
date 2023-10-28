@@ -27,7 +27,7 @@ export default class LandingPage extends React.Component {
 
   componentDidMount = () => {
     this.handleGetNews();
-    this.handleGetUser()
+    this.handleGetUser();
   };
 
   handleGetNews = async () => {
@@ -41,13 +41,13 @@ export default class LandingPage extends React.Component {
   };
 
   handleGetUser = async () => {
-    const response = await authService.getUser()
+    const response = await authService.getUser();
 
-    if(response.success) {
-      const user = Number(response.data.max) + 1
-      localStorage.setItem('guest_id', user)
+    if (response.success) {
+      const user = Number(response.data.max) + 1;
+      localStorage.setItem("guest_id", user);
     }
-  }
+  };
 
   handleLogout = () => {
     localStorage.setItem("role_id", "");
@@ -127,15 +127,13 @@ export default class LandingPage extends React.Component {
                 <Col>
                   <div style={{ textAlign: "justify" }}>
                     <Link to="/kuesioner-spk">
-                    <Button variant="success" className="mb-3 btn-lg px-5">
-                      Tentukan Passion Anak
-                    </Button>
+                      <Button variant="success" className="mb-3 btn-lg px-5">
+                        Tentukan Passion Anak
+                      </Button>
                     </Link>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Dolorem quisquam tempora rerum assumenda unde perferendis
-                      eos alias blanditiis optio iure quis, aliquam sed
-                      praesentium recusandae?
+                      Temukan passion anak Anda dengan mudah melalui sistem SPK
+                      TOPSIS yang inovatif dan akurat
                     </p>
                   </div>
                 </Col>

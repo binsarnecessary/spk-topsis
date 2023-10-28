@@ -34,7 +34,7 @@ const Footer = () => {
               </div>
               <div className="col-11">
                 <Link
-                  to="mailto:museakademi.official@gmail.com"
+                  to="mailto:juliah@gmail.com"
                   className="text-white text-decoration-none"
                 >
                   <small>juliah@gmail.com</small>
@@ -47,11 +47,11 @@ const Footer = () => {
               </div>
               <div className="col-11">
                 <Link
-                  // to="https://www.instagram.com/museakademi/"
+                  to="https://www.instagram.com/lhiyajuliaa_/"
                   className="text-white text-decoration-none"
                   target="_blank"
                 >
-                  <small>@juliah</small>
+                  <small>@lhiyajuliaa_</small>
                 </Link>
               </div>
             </div>
@@ -61,7 +61,7 @@ const Footer = () => {
               </div>
               <div className="col-11">
                 <Link
-                  // to="https://www.facebook.com/musee.malang.1"
+                  to="https://www.facebook.com"
                   className="text-white text-decoration-none"
                   target="_blank"
                 >
@@ -75,11 +75,11 @@ const Footer = () => {
               </div>
               <div className="col-11">
                 <Link
-                  // href="https://wa.me/6285173336607"
+                  href="https://wa.me/6282238079745"
                   className="text-white text-decoration-none"
                   target="_blank"
                 >
-                  <small>+62 851-7333-6607</small>
+                  <small>+62 822-3807-9745</small>
                 </Link>
               </div>
             </div>

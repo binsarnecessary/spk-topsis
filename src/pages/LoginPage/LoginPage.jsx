@@ -66,14 +66,14 @@ export class LoginPage extends Component {
         localStorage.setItem("role", response.data.role);
 
         Swal.fire({
-          title: "Success!",
+          title: "Berhasil!",
           text: response.message,
           icon: "success",
           confirmButtonText: "OK",
         });
       } else {
         Swal.fire({
-          title: "Failed!",
+          title: "Gagal!",
           text: response.message,
           icon: "error",
           confirmButtonText: "OK",

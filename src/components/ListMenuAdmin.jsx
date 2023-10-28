@@ -37,7 +37,7 @@ export const ListMenuAdmin = () => {
                         textDecoration: "none",
                       }}
                     >
-                      History Pemakaian User
+                      History Topsis
                     </h5>
                   </Card.Title>
                 </Card.Body>
@@ -73,6 +73,76 @@ export const ListMenuAdmin = () => {
                       }}
                     >
                       Input Berita
+                    </h5>
+                  </Card.Title>
+                </Card.Body>
+              </Card>
+            </a>
+          </Col>
+
+          <Col sm={3}>
+            <a href="/admin-criteria" style={{ textDecoration: "none" }}>
+              <Card
+                style={{ marginTop: "40px", textDecoration: "none" }}
+                className="cards"
+              >
+                <Card.Header
+                  style={{
+                    textAlign: "center",
+                  }}
+                >
+                  <Row style={{ marginTop: "30px", marginBottom: "30px" }}>
+                    <Col>
+                      <Icon.FileEarmark size={40} />
+                    </Col>
+                  </Row>
+                </Card.Header>
+                <Card.Body>
+                  <Card.Title>
+                    <h5
+                      className="mb-0"
+                      style={{
+                        color: "#183153",
+                        textAlign: "center",
+                        textDecoration: "none",
+                      }}
+                    >
+                      Kriteria
+                    </h5>
+                  </Card.Title>
+                </Card.Body>
+              </Card>
+            </a>
+          </Col>
+
+          <Col sm={3}>
+            <a href="/admin-alternative" style={{ textDecoration: "none" }}>
+              <Card
+                style={{ marginTop: "40px", textDecoration: "none" }}
+                className="cards"
+              >
+                <Card.Header
+                  style={{
+                    textAlign: "center",
+                  }}
+                >
+                  <Row style={{ marginTop: "30px", marginBottom: "30px" }}>
+                    <Col>
+                      <Icon.Shuffle size={40} />
+                    </Col>
+                  </Row>
+                </Card.Header>
+                <Card.Body>
+                  <Card.Title>
+                    <h5
+                      className="mb-0"
+                      style={{
+                        color: "#183153",
+                        textAlign: "center",
+                        textDecoration: "none",
+                      }}
+                    >
+                      Alternatif
                     </h5>
                   </Card.Title>
                 </Card.Body>

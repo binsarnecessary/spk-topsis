@@ -7,7 +7,7 @@ const SideBar = () => {
     <nav id="sidebar" className="sidebar js-sidebar">
       <div className="sidebar-content js-simplebar">
         <a className="sidebar-brand" href="index.html">
-          <span className="align-middle">Medic</span>
+          <span className="align-middle">SPK</span>
         </a>
 
         <ul className="sidebar-nav">
@@ -16,13 +16,25 @@ const SideBar = () => {
           <li className="sidebar-item">
             <Link href className="sidebar-link" to="/admin-history">
               <Icon.ClockHistory />
-              <span className="align-middle">History Pemakaian User</span>
+              <span className="align-middle">History Topsis</span>
             </Link>
           </li>
           <li className="sidebar-item">
             <Link href className="sidebar-link" to="/admin-news">
               <Icon.Newspaper />
               <span className="align-middle">Input Berita</span>
+            </Link>
+          </li>
+          <li className="sidebar-item">
+            <Link href className="sidebar-link" to="/admin-criteria">
+              <Icon.FileEarmark />
+              <span className="align-middle">Kriteria</span>
+            </Link>
+          </li>
+          <li className="sidebar-item">
+            <Link href className="sidebar-link" to="/admin-alternative">
+              <Icon.Shuffle />
+              <span className="align-middle">Alternatif</span>
             </Link>
           </li>
         </ul>

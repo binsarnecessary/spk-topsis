@@ -10,6 +10,9 @@ import NewsPage from "./pages/Admin/News/NewsPage";
 import NewsPageUser from "./pages/NewsPage/NewsPageUser";
 import ResultPassion from "./pages/PassionPage/ResultPassion";
 import HistoryUser from "./pages/Admin/HistoryUser/HistoryUser";
+import CriteriaPage from "./pages/Admin/Criteria/CriteriaPage";
+import AlternativePage from "./pages/Admin/Alternative/AlternativePage";
+import DetailHistoryUser from "./pages/Admin/HistoryUser/DetailHistoryUser";
 
 export default class App extends Component {
   constructor(props) {
@@ -29,10 +32,14 @@ export default class App extends Component {
           <Route exact path="/kuesioner-spk" element={<KuesionerPage />} />
           <Route exact path="/profil-pakar" element={<ProfilPakar />} />
           <Route exact path="/news/:id" element={<NewsPageUser />} />
+
           -- Admin
           <Route exact path="/admin" element={<Homepage />} />
           <Route exact path="/admin-news" element={<NewsPage />} />
           <Route exact path="/admin-history" element={<HistoryUser />} />
+          <Route exact path="/admin-criteria" element={<CriteriaPage />} />
+          <Route exact path="/admin-alternative" element={<AlternativePage />} />
+          <Route exact path="/admin-detail-history" element={<DetailHistoryUser />} />
         </Routes>
       </BrowserRouter>
     );

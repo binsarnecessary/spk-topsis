@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { Col, Container, Image, Row } from "react-bootstrap";
+import JuliaPic from "../../assets/img/juliah.jpg"
+import AdrianaPic from "../../assets/img/adriana.jpg"
+
 
 export default class ProfilPakar extends Component {
   render() {
@@ -19,21 +22,21 @@ export default class ProfilPakar extends Component {
                 <Col lg={1}></Col>
                 <Col lg={2}>
                   <Image
-                    src="https://image.winudf.com/v2/image1/bmV0LndsbHBwci5ib3lzX3Byb2ZpbGVfcGljdHVyZXNfc2NyZWVuXzBfMTY2NzUzNzYxN18wOTk/screen-0.webp?fakeurl=1&type=.webp"
+                    src={JuliaPic}
                     width="200"
                     height="220"
                   />
                 </Col>
                 <Col>
                   <div>
-                    <h2 style={{ color: "blue" }}>Juliah Anggreani</h2>
+                    <h2 style={{ color: "#171f69" }}>Juliah Anggreani</h2>
                     <i>Manokwari, 10 Juli 2001</i>
                     <p>
                       S1 Teknik Informatika UNIPA 2019 <br />
                       Riwayat Mengajar :{" "}
                     </p>
                     <ul style={{ marginTop: "-10px" }}>
-                      <li>SD N Sekian</li>
+                      <li>SD N</li>
                       <li>SMP N 3 Manokwari</li>
                       <li>SMA N 1 Manokwari</li>
                     </ul>
@@ -47,23 +50,22 @@ export default class ProfilPakar extends Component {
                 <Col lg={1}></Col>
                 <Col lg={2}>
                   <Image
-                    src="https://image.winudf.com/v2/image1/bmV0LndsbHBwci5ib3lzX3Byb2ZpbGVfcGljdHVyZXNfc2NyZWVuXzBfMTY2NzUzNzYxN18wOTk/screen-0.webp?fakeurl=1&type=.webp"
+                    src={AdrianaPic}
                     width="200"
                     height="220"
                   />
                 </Col>
                 <Col>
                   <div>
-                    <h2 style={{ color: "blue" }}>Juliah Anggreani</h2>
-                    <i>Manokwari, 10 Juli 2001</i>
+                    <h2 style={{ color: "#171f69" }}>Adriana Neonufa, S. Psi</h2>
+                    <i>Manokwari, 07 April 2001</i>
                     <p>
-                      S1 Teknik Informatika UNIPA 2019 <br />
-                      Riwayat Mengajar :{" "}
+                      S1 Pendidikan Psikologi UM 2019 <br />
                     </p>
                     <ul style={{ marginTop: "-10px" }}>
-                      <li>SD N Sekian</li>
-                      <li>SMP N 3 Manokwari</li>
-                      <li>SMA N 1 Manokwari</li>
+                      <li>-</li>
+                      <li>-</li>
+                      <li>-</li>
                     </ul>
                   </div>
                 </Col>

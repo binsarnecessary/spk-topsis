@@ -19,14 +19,15 @@ export default function Banner() {
                 <p>Metode Mendidik Anak Sesuai Perspektif Passion</p>
                 <h1>Aplikasi Sistem Pakar</h1>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Soluta minus qui, rem nihil, perferendis fugit quod molestias
-                  autem, hic velit placeat in voluptatum ipsum quia quas omnis.
-                  Consequuntur nulla veniam iste nobis, aspernatur dolores
-                  perferendis soluta deleniti tenetur excepturi labore
-                  voluptates? Voluptates ratione similique, iure vel nobis
-                  molestias placeat magnam Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Culpa, explicabo.
+                  Dengan Sistem ini, Anda akan menemukan cara yang inovatif dan
+                  akurat untuk menentukan passion anak Anda. Sistem SPK TOPSIS
+                  kami telah dirancang khusus untuk membantu Anda dalam
+                  perjalanan ini. Dengan bantuan kami, Anda dapat menjelajahi
+                  minat, bakat, dan potensi unik anak Anda sehingga mereka dapat
+                  meraih potensi terbaik dalam hidup mereka. Mulailah
+                  petualangan menemukan passion anak Anda bersama kami dan
+                  lihatlah bagaimana kami dapat membantu menciptakan masa depan
+                  yang cerah untuk mereka.
                 </p>
               </div>
             </Col>

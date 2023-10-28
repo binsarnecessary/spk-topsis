@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function CallUs(props) {
   const unique = 1;
@@ -38,7 +39,9 @@ export default function CallUs(props) {
                   />
                   <Form.Text></Form.Text>
                 </Form.Group>
-                <Button>Kirim Pesan</Button>
+                <Link to="https://wa.me/6282238079745">
+                  <Button>Kirim Pesan</Button>
+                </Link>
               </Form>
             </div>
           </Col>
