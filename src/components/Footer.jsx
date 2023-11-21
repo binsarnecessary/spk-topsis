@@ -21,7 +21,7 @@ const Footer = () => {
         <Row>
           <div className="col-12 col-lg-3 mb-4 text-center">
             <img
-              src="https://uploads-ssl.webflow.com/61e56178f3e363337a6577cc/62195291ebd6fdce599a13f0_Logo%20UNIPA%20Warna-01.webp"
+              src="https://insanmuliamanokwari.sch.id/wp-content/uploads/2021/07/logo-SDIT-Insan-Mulia-Manokwari.png"
               alt="logo footer"
               className="logo img-fluid"
             />

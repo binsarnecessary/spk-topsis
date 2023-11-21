@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { Col, Container, Image, Row } from "react-bootstrap";
-import JuliaPic from "../../assets/img/juliah.jpg"
-import AdrianaPic from "../../assets/img/adriana.jpg"
-
+import JuliaPic from "../../assets/img/juliah.jpg";
+import Pakar1 from "../../assets/img/pakar1.jpg";
+import Pakar2 from "../../assets/img/pakar2.jpg";
 
 export default class ProfilPakar extends Component {
   render() {
@@ -21,11 +21,7 @@ export default class ProfilPakar extends Component {
               <Row>
                 <Col lg={1}></Col>
                 <Col lg={2}>
-                  <Image
-                    src={JuliaPic}
-                    width="200"
-                    height="220"
-                  />
+                  <Image src={JuliaPic} width="200" height="220" />
                 </Col>
                 <Col>
                   <div>
@@ -36,9 +32,31 @@ export default class ProfilPakar extends Component {
                       Riwayat Mengajar :{" "}
                     </p>
                     <ul style={{ marginTop: "-10px" }}>
-                      <li>SD N</li>
-                      <li>SMP N 3 Manokwari</li>
-                      <li>SMA N 1 Manokwari</li>
+                      <li>Papuan Future Project (PFP)</li>
+                      <li>Les Bimbingan Belajar</li>
+                    </ul>
+                  </div>
+                </Col>
+              </Row>
+            </div>
+
+            <div className="mb-5">
+              <Row>
+                <Col lg={1}></Col>
+                <Col lg={2}>
+                  <Image src={Pakar1} width="200" height="220" />
+                </Col>
+                <Col>
+                  <div>
+                    <h2 style={{ color: "#171f69" }}>
+                      Nita Riski Yuliati,A.Md
+                    </h2>
+                    <i>Wonogiri, 13 Juli 1994</i>
+                    <p>
+                      STIE MAHESA Manokwari <br />
+                    </p>
+                    <ul style={{ marginTop: "-10px" }}>
+                      <li>Guru di SD IT Insan Mulia Manokwari</li>
                     </ul>
                   </div>
                 </Col>
@@ -49,23 +67,18 @@ export default class ProfilPakar extends Component {
               <Row>
                 <Col lg={1}></Col>
                 <Col lg={2}>
-                  <Image
-                    src={AdrianaPic}
-                    width="200"
-                    height="220"
-                  />
+                  <Image src={Pakar2} width="200" height="220" />
                 </Col>
                 <Col>
                   <div>
-                    <h2 style={{ color: "#171f69" }}>Adriana Neonufa, S. Psi</h2>
-                    <i>Manokwari, 07 April 2001</i>
+                    <h2 style={{ color: "#171f69" }}>Siti Nurhayati, S.Pd</h2>
+                    <i>Jayapura, 21 Mei 1979</i>
                     <p>
-                      S1 Pendidikan Psikologi UM 2019 <br />
+                      UT Universitas Terbuka
+                      <br />
                     </p>
                     <ul style={{ marginTop: "-10px" }}>
-                      <li>-</li>
-                      <li>-</li>
-                      <li>-</li>
+                      <li>Mengajar dari THN 2004 hingga sekarang</li>
                     </ul>
                   </div>
                 </Col>
