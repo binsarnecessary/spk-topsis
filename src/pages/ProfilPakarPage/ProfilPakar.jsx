@@ -21,29 +21,6 @@ export default class ProfilPakar extends Component {
               <Row>
                 <Col lg={1}></Col>
                 <Col lg={2}>
-                  <Image src={JuliaPic} width="200" height="220" />
-                </Col>
-                <Col>
-                  <div>
-                    <h2 style={{ color: "#171f69" }}>Juliah Anggreani</h2>
-                    <i>Manokwari, 10 Juli 2001</i>
-                    <p>
-                      S1 Teknik Informatika UNIPA 2019 <br />
-                      Riwayat Mengajar :{" "}
-                    </p>
-                    <ul style={{ marginTop: "-10px" }}>
-                      <li>Papuan Future Project (PFP)</li>
-                      <li>Les Bimbingan Belajar</li>
-                    </ul>
-                  </div>
-                </Col>
-              </Row>
-            </div>
-
-            <div className="mb-5">
-              <Row>
-                <Col lg={1}></Col>
-                <Col lg={2}>
                   <Image src={Pakar1} width="200" height="220" />
                 </Col>
                 <Col>
