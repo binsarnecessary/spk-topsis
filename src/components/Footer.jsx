@@ -37,7 +37,7 @@ const Footer = () => {
                   to="mailto:juliah@gmail.com"
                   className="text-white text-decoration-none"
                 >
-                  <small>juliah@gmail.com</small>
+                  <small>lhiyajulia7@gmail.com</small>
                 </Link>
               </div>
             </div>
@@ -65,7 +65,7 @@ const Footer = () => {
                   className="text-white text-decoration-none"
                   target="_blank"
                 >
-                  <small>Juliah Anggreani</small>
+                  <small>LhiyaJulia</small>
                 </Link>
               </div>
             </div>
