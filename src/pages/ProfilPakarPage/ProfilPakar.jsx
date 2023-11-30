@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import NavBar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { Col, Container, Image, Row } from "react-bootstrap";
-import JuliaPic from "../../assets/img/juliah.jpg";
 import Pakar1 from "../../assets/img/pakar1.jpg";
 import Pakar2 from "../../assets/img/pakar2.jpg";
 

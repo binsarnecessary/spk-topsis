@@ -102,8 +102,6 @@ const criteriaService = {
     return result;
   },
 
-
-
   //---------------TOPSI METHOD----------------------------
 
   getAllPoint: () => {
@@ -122,6 +120,26 @@ const criteriaService = {
           data: error,
         };
       });
+    return result;
+  },
+
+  deleteDecision: (id) => {
+    const result = axios
+      .delete(config.apiUrl + `api/decision/${id}`)
+      .then((response) => {
+        return {
+          success: response.data.success,
+          message: response.data.message,
+          data: response.data.data,
+        };
+      })
+      .catch((error) => {
+        return {
+          success: false,
+          data: error,
+        };
+      });
+
     return result;
   },
 

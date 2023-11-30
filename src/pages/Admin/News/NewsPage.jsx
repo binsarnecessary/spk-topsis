@@ -13,7 +13,7 @@ export default class NewsPage extends Component {
   newsModel = {
     headline: "",
     thumbnail: "",
-    main: "",
+    isi_berita: "",
   };
 
   constructor(props) {

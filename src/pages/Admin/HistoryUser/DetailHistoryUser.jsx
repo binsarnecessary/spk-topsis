@@ -30,6 +30,7 @@ export default class DetailHistoryUser extends Component {
       distanceToAn: [],
       finalResult: [], //with id and name topsis
       topsisScores: [],
+      name: {},
     };
 
     this.interval = null;
@@ -109,6 +110,7 @@ export default class DetailHistoryUser extends Component {
         distanceToAn: response.data.distanceToAn,
         finalResult: response.data.finalResult,
         topsisScores: response.data.topsisScores,
+        name: response.data.name,
       });
     }
   };
@@ -143,6 +145,7 @@ export default class DetailHistoryUser extends Component {
       // finalResult,
       topsisScores,
       // topsis,
+      name,
     } = this.state;
 
     return (
@@ -170,13 +173,15 @@ export default class DetailHistoryUser extends Component {
                   <>
                     <div className="mt-5 mb-4 text-center">
                       <h4>
-                        Berdasarkan Perhitungan Menggunakan Metode Topsis Maka
-                        Anak Anda memiliki Passion{" "}
+                        Berdasarkan Hasil Perhitungan Menggunakan Metode Topsis
+                        Maka Ditentukan Bahwa <b>{name}</b> memiliki jenis
+                        Passion{" "}
                         <Link to={"/news/" + passion.id}>
                           <b>{passion.name}</b>
                         </Link>{" "}
-                        dengan bobot perhitungan paling cocok{" "}
-                        <b>{resultTopsis.topsisScore}</b>{" "}
+                        dengan nilai bobot <b>{resultTopsis.topsisScore},</b>{" "}
+                        telah dinyatakan sebagai pilihan terbaik dari semua
+                        alternative
                       </h4>
                     </div>
                     <div className="mt-3 mb-5 text-center">

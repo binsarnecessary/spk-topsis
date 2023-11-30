@@ -1,14 +1,15 @@
 import React from "react";
-import { Modal, Button, Form } from "react-bootstrap";
+import { Modal, Button, Form, FormLabel } from "react-bootstrap";
 
-export default function FormInputNews(props) {
+export default function FormInputCriteria(props) {
   const {
     isShow,
     close,
+    listAlternative,
     handleChange,
     errors,
     handleSave,
-    newsModel,
+    criteriaModel,
     mode,
     handleEdit,
     handleDelete,
@@ -19,21 +20,21 @@ export default function FormInputNews(props) {
   var button;
 
   if (mode === "create") {
-    title = <Modal.Title>Tambah Berita</Modal.Title>;
+    title = <Modal.Title>Tambah Criteria</Modal.Title>;
     button = (
       <Button variant="primary" onClick={handleSave}>
         Simpan
       </Button>
     );
   } else if (mode === "edit") {
-    title = <Modal.Title>Edit Berita</Modal.Title>;
+    title = <Modal.Title>Edit Criteria</Modal.Title>;
     button = (
       <Button variant="warning" onClick={handleEdit}>
         Simpan
       </Button>
     );
   } else {
-    title = <Modal.Title>Hapus Berita</Modal.Title>;
+    title = <Modal.Title>Hapus Criteria</Modal.Title>;
     button = (
       <Button variant="danger" onClick={handleDelete}>
         Hapus
@@ -49,12 +50,12 @@ export default function FormInputNews(props) {
           {mode === "delete" ? (
             <>
               <Form.Group className="mb-3">
-                <Form.Label>Headline</Form.Label>
+                <Form.Label>Name Criteria</Form.Label>
                 <Form.Control
                   type="text"
                   onChange={handleChange}
-                  name="headline"
-                  value={newsModel.headline}
+                  name="name"
+                  value={criteriaModel.name}
                   disabled
                 />
               </Form.Group>
@@ -62,39 +63,59 @@ export default function FormInputNews(props) {
           ) : (
             <>
               <Form.Group className="mb-3">
-                <Form.Label>Headline</Form.Label>
+                <Form.Label>Name</Form.Label>
                 <Form.Control
                   type="text"
                   onChange={handleChange}
-                  name="headline"
-                  value={newsModel.headline}
-                  placeholder="Masukkan Headline Berita"
+                  name="name"
+                  value={criteriaModel.name}
+                  placeholder="Masukkan Name Criteria"
                 />
                 <Form.Text className="text-danger">
-                  {errors && errors.headline}
+                  {errors && errors.name}
                   {error}
                 </Form.Text>
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>Thumbnail</Form.Label>
+                <Form.Label>Description</Form.Label>
                 <Form.Control
                   type="text"
                   onChange={handleChange}
-                  name="thumbnail"
-                  value={newsModel.thumbnail}
-                  placeholder="Masukkan Thumbnail Berupa Link URL"
+                  name="description"
+                  value={criteriaModel.description}
+                  placeholder="Masukkan Description"
                 />
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>Isi Berita</Form.Label>
-                <Form.Control
-                  as="textarea"
+                <FormLabel>Alternative</FormLabel>
+                <Form.Select
+                  aria-label="Default select example"
                   onChange={handleChange}
-                  name="isi_berita"
-                  value={newsModel.isi_berita}
-                  placeholder="Masukkan Isi Berita"
+                  name="alternative_id"
+                  value={criteriaModel.alternative_id}
+                >
+                  <option>Select Alternative</option>
+                  {listAlternative.map((data) => (
+                    <option key={data.id} value={data.id}>
+                      {data.name}
+                    </option>
+                  ))}
+                </Form.Select>
+                <Form.Text className="text-danger">
+                  {errors.alternative_id}
+                </Form.Text>
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Attribut</Form.Label>
+                <Form.Control
+                  type="text"
+                  onChange={handleChange}
+                  name="attribut"
+                  value={criteriaModel.attribut}
+                  placeholder="Ketik cost / benefit"
                 />
               </Form.Group>
             </>

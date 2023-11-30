@@ -1,14 +1,14 @@
 import React from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 
-export default function FormInputNews(props) {
+export default function FormInputAlternative(props) {
   const {
     isShow,
     close,
     handleChange,
     errors,
     handleSave,
-    newsModel,
+    alternativeModel,
     mode,
     handleEdit,
     handleDelete,
@@ -19,21 +19,21 @@ export default function FormInputNews(props) {
   var button;
 
   if (mode === "create") {
-    title = <Modal.Title>Tambah Berita</Modal.Title>;
+    title = <Modal.Title>Tambah Alternative</Modal.Title>;
     button = (
       <Button variant="primary" onClick={handleSave}>
         Simpan
       </Button>
     );
   } else if (mode === "edit") {
-    title = <Modal.Title>Edit Berita</Modal.Title>;
+    title = <Modal.Title>Edit Alternative</Modal.Title>;
     button = (
       <Button variant="warning" onClick={handleEdit}>
         Simpan
       </Button>
     );
   } else {
-    title = <Modal.Title>Hapus Berita</Modal.Title>;
+    title = <Modal.Title>Hapus Alternative</Modal.Title>;
     button = (
       <Button variant="danger" onClick={handleDelete}>
         Hapus
@@ -49,12 +49,12 @@ export default function FormInputNews(props) {
           {mode === "delete" ? (
             <>
               <Form.Group className="mb-3">
-                <Form.Label>Headline</Form.Label>
+                <Form.Label>Name Alternative</Form.Label>
                 <Form.Control
                   type="text"
                   onChange={handleChange}
-                  name="headline"
-                  value={newsModel.headline}
+                  name="name"
+                  value={alternativeModel.name}
                   disabled
                 />
               </Form.Group>
@@ -62,39 +62,43 @@ export default function FormInputNews(props) {
           ) : (
             <>
               <Form.Group className="mb-3">
-                <Form.Label>Headline</Form.Label>
+                <Form.Label>Code</Form.Label>
                 <Form.Control
                   type="text"
                   onChange={handleChange}
-                  name="headline"
-                  value={newsModel.headline}
-                  placeholder="Masukkan Headline Berita"
+                  name="code"
+                  value={alternativeModel.code}
+                  placeholder="Masukkan Code"
                 />
                 <Form.Text className="text-danger">
-                  {errors && errors.headline}
+                  {errors && errors.code}
                   {error}
                 </Form.Text>
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>Thumbnail</Form.Label>
+                <Form.Label>Name</Form.Label>
                 <Form.Control
                   type="text"
                   onChange={handleChange}
-                  name="thumbnail"
-                  value={newsModel.thumbnail}
-                  placeholder="Masukkan Thumbnail Berupa Link URL"
+                  name="name"
+                  value={alternativeModel.name}
+                  placeholder="Masukkan Name"
                 />
+                <Form.Text className="text-danger">
+                  {errors && errors.name}
+                  {error}
+                </Form.Text>
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>Isi Berita</Form.Label>
+                <Form.Label>Description</Form.Label>
                 <Form.Control
-                  as="textarea"
+                  type="text"
                   onChange={handleChange}
-                  name="isi_berita"
-                  value={newsModel.isi_berita}
-                  placeholder="Masukkan Isi Berita"
+                  name="description"
+                  value={alternativeModel.description}
+                  placeholder="Masukkan Description"
                 />
               </Form.Group>
             </>

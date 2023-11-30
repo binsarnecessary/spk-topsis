@@ -6,19 +6,182 @@ import * as Icon from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 import criteriaService from "../../../services/criteriaService";
 import { Button } from "react-bootstrap";
+import Swal from "sweetalert2";
+import alternativeService from "../../../services/alternativeService";
+import FormInputCriteria from "./FormInputCriteria";
 
 export default class CriteriaPage extends Component {
+  criteriaModel = {
+    name: "",
+    description: "",
+    alternative_id: "",
+    attribut: "",
+  };
+
   constructor(props) {
     super(props);
 
     this.state = {
       isSidebarActive: true,
       listCriteria: [],
+      listAlternative: [],
+      criteriaModel: this.criteriaModel,
+      isShow: false,
+      mode: "",
+      errors: {},
     };
   }
 
   componentDidMount = () => {
     this.handleGetAllCriteria();
+  };
+
+  handleOpenModal = () => {
+    this.handleGetAllAlternative();
+    this.setState({
+      isShow: true,
+      mode: "create",
+    });
+  };
+
+  handleCloseModal = () => {
+    this.setState({
+      isShow: false,
+      criteriaModel: this.criteriaModel,
+    });
+  };
+
+  handleOpenModalEdit = async (id) => {
+    this.handleGetAllAlternative();
+    const response = await criteriaService.getAllCriteriaById(id);
+
+    if (response.success) {
+      this.setState({
+        isShow: true,
+        mode: "edit",
+        criteriaModel: response.data,
+      });
+    }
+  };
+
+  handleOpenModalDelete = async (id) => {
+    const response = await criteriaService.getAllCriteriaById(id);
+
+    if (response.success) {
+      this.setState({
+        isShow: true,
+        mode: "delete",
+        criteriaModel: response.data,
+      });
+    }
+  };
+
+  handleValidation = () => {
+    const { criteriaModel } = this.state;
+    var isValidForm = true;
+    var errors = {};
+
+    if (criteriaModel.name === "") {
+      isValidForm = false;
+      errors.name = "Name is required";
+    } else if (criteriaModel.alternative_id === "") {
+      isValidForm = false;
+      errors.alternative_id = "Choose Alternative";
+    }
+
+    this.setState({
+      errors: errors,
+    });
+
+    return isValidForm;
+  };
+
+  handleSave = async () => {
+    const { criteriaModel } = this.state;
+
+    if (this.handleValidation()) {
+      const response = await criteriaService.addCriteria(criteriaModel);
+      if (response.success) {
+        this.handleGetAllCriteria();
+        this.setState({
+          isShow: false,
+          criteriaModel: this.criteriaModel,
+        });
+        Swal.fire({
+          title: "Success!",
+          text: response.message,
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+      } else {
+        this.setState({
+          errors: response.data,
+        });
+      }
+    }
+  };
+
+  handleEdit = async () => {
+    const { criteriaModel } = this.state;
+
+    if (this.handleValidation()) {
+      const response = await criteriaService.updateCriteria(criteriaModel);
+      if (response.success) {
+        this.handleGetAllCriteria();
+        this.setState({
+          isShow: false,
+          criteriaModel: this.criteriaModel,
+        });
+        Swal.fire({
+          title: "Success!",
+          text: response.message,
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+      }
+    }
+  };
+
+  handleDelete = async () => {
+    const { criteriaModel } = this.state;
+
+    const response = await criteriaService.deleteCriteria(criteriaModel.id);
+    if (response.success) {
+      this.handleGetAllCriteria();
+      this.setState({
+        isShow: false,
+        criteriaModel: this.criteriaModel,
+      });
+      Swal.fire({
+        title: "Success!",
+        text: response.message,
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+    }
+  };
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+
+    this.setState({
+      criteriaModel: {
+        ...this.state.criteriaModel,
+        [name]: value,
+      },
+    });
+  };
+
+  handleGetAllAlternative = async () => {
+    const response = await alternativeService.getAlternative(
+      alternativeService
+    );
+
+    if (response.success) {
+      this.setState({
+        listAlternative: response.data,
+      });
+    }
   };
 
   handleGetAllCriteria = async () => {
@@ -46,8 +209,19 @@ export default class CriteriaPage extends Component {
   };
 
   render() {
-    const { isSidebarActive, listCriteria } = this.state;
-
+    const {
+      isSidebarActive,
+      listCriteria,
+      listAlternative,
+      isShow,
+      mode,
+      criteriaModel,
+      errors,
+    } = this.state;
+    console.log(
+      "🚀 ~ file: CriteriaPage.jsx:156 ~ CriteriaPage ~ render ~ criteriaModel:",
+      criteriaModel
+    );
     return (
       <div>
         <div className="wrapper">
@@ -69,7 +243,7 @@ export default class CriteriaPage extends Component {
                 className="d-flex justify-content-end mb-3"
                 style={{ marginRight: "30px" }}
               >
-                <Button onClick={this.handleOpenModal}>Tambah Berita</Button>
+                <Button onClick={this.handleOpenModal}>Tambah Kriteria</Button>
               </div>
               <div style={{ marginRight: "30px" }}>
                 <table className="table">
@@ -120,6 +294,19 @@ export default class CriteriaPage extends Component {
             <Footer />
           </div>
         </div>
+
+        <FormInputCriteria
+          isShow={isShow}
+          criteriaModel={criteriaModel}
+          mode={mode}
+          close={this.handleCloseModal}
+          listAlternative={listAlternative}
+          errors={errors}
+          handleChange={this.handleChange}
+          handleSave={this.handleSave}
+          handleEdit={this.handleEdit}
+          handleDelete={this.handleDelete}
+        />
       </div>
     );
   }

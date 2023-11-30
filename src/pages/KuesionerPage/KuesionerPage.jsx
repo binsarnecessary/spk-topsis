@@ -16,8 +16,11 @@ export default class KuesionerPage extends Component {
       listCriteria: [],
       listPoint: [],
       listDecision: this.listDecision,
+      name: "",
+      guest_id: localStorage.getItem("guest_id"),
       isPassion: false,
       errors: "",
+      mode: "",
     };
   }
 
@@ -81,24 +84,41 @@ export default class KuesionerPage extends Component {
   };
 
   handleValidation = () => {
-    const { listDecision } = this.state;
+    const { listDecision, name } = this.state;
     var validForm = true;
+    var errors = {};
 
     if (listDecision.length < 30) {
       validForm = false;
-      this.setState({
-        errors: "This Field is required",
-      });
+      errors.form = "This Field is required";
     }
+    if (name === "") {
+      validForm = false;
+      errors.name = "Fill This name form";
+    }
+
+    this.setState({
+      errors: errors,
+    });
 
     return validForm;
   };
 
+  handleChange = (event) => {
+    const { value } = event.target;
+
+    this.setState({
+      name: value,
+    });
+  };
+
   handleSendKuesioner = async () => {
-    const { listDecision } = this.state;
+    const { listDecision, name, guest_id } = this.state;
 
     if (this.handleValidation()) {
       const data = {
+        name: name,
+        guest_id: guest_id,
         listDecision: listDecision,
       };
       const response = await criteriaService.sendKuesioner(data);
@@ -138,6 +158,24 @@ export default class KuesionerPage extends Component {
               Pilih Sesuai dengan perilaku yang di tunjukkan oleh anak anda
             </h3>
             <div>
+              <div className="mt-4">
+                <Form.Group className="mb-3 d-flex">
+                  <Form.Label className="fw-bold">Nama</Form.Label>
+                  <Form.Control
+                    type="text"
+                    onChange={this.handleChange}
+                    name="name"
+                    placeholder="Masukkan Nama Anak Anda"
+                    style={{ marginLeft: "20px", width: "500px" }}
+                  />
+                  <Form.Text
+                    className="text-danger"
+                    style={{ marginLeft: "10px" }}
+                  >
+                    {errors.name}
+                  </Form.Text>
+                </Form.Group>
+              </div>
               <table className="table">
                 <thead>
                   <tr>
@@ -168,7 +206,9 @@ export default class KuesionerPage extends Component {
                               </option>
                             ))}
                           </Form.Select>
-                          <Form.Text className="text-danger">{errors}</Form.Text>
+                          <Form.Text className="text-danger">
+                            {errors.form}
+                          </Form.Text>
                         </Form.Group>
                       </td>
                     </tr>
