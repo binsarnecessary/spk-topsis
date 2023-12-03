@@ -184,9 +184,6 @@ export default class DetailHistoryUser extends Component {
                         alternative
                       </h4>
                     </div>
-                    <div className="mt-3 mb-5 text-center">
-                      <h5>{passion.description}</h5>
-                    </div>
                     <h3 className="mb-3 mt-4">Perhitungan Topsis</h3>
                     <div id="Nilai Keputusan Alternative setiap kriteria">
                       <h5
