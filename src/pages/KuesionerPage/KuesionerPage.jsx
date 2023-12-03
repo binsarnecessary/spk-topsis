@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import criteriaService from "../../services/criteriaService";
 import Swal from "sweetalert2";
 import { Navigate } from "react-router-dom";
+import authService from "../../services/authService";
 
 export default class KuesionerPage extends Component {
   listDecision = [];
@@ -27,6 +28,16 @@ export default class KuesionerPage extends Component {
   componentDidMount = () => {
     this.handleGetAllCriteria();
     this.handleGetPoint();
+    this.handleGetUser();
+  };
+
+  handleGetUser = async () => {
+    const response = await authService.getUser();
+
+    if (response.success) {
+      const user = Number(response.data.max) + 1;
+      localStorage.setItem("guest_id", user);
+    }
   };
 
   handleGetAllCriteria = async () => {

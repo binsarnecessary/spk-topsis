@@ -27,7 +27,6 @@ export default class LandingPage extends React.Component {
 
   componentDidMount = () => {
     this.handleGetNews();
-    this.handleGetUser();
   };
 
   handleGetNews = async () => {
@@ -40,23 +39,9 @@ export default class LandingPage extends React.Component {
     }
   };
 
-  handleGetUser = async () => {
-    const response = await authService.getUser();
-
-    if (response.success) {
-      const user = Number(response.data.max) + 1;
-      localStorage.setItem("guest_id", user);
-    }
-  };
-
   handleLogout = () => {
     localStorage.setItem("role_id", "");
-    localStorage.removeItem("role"); // menghapus yang ada di local storage (logout)
-    localStorage.removeItem("fullname");
-    localStorage.removeItem("email");
-    localStorage.removeItem("admin_id");
-    localStorage.removeItem("doctor_id");
-    localStorage.removeItem("customer_id");
+
     Swal.fire({
       //allert
       title: "Success!",
