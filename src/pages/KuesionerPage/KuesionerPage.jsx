@@ -18,7 +18,7 @@ export default class KuesionerPage extends Component {
       listPoint: [],
       listDecision: this.listDecision,
       name: "",
-      guest_id: localStorage.getItem("guest_id"),
+      guest_id: "",
       isPassion: false,
       errors: "",
       mode: "",
@@ -37,6 +37,9 @@ export default class KuesionerPage extends Component {
     if (response.success) {
       const user = Number(response.data.max) + 1;
       localStorage.setItem("guest_id", user);
+      this.setState({
+        guest_id: user,
+      });
     }
   };
 
