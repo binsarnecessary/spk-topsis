@@ -10,7 +10,7 @@ import News from "./News";
 import CallUs from "./CallUs";
 import newsService from "../../services/newsService";
 import { Link } from "react-router-dom";
-import authService from "../../services/authService";
+// import authService from "../../services/authService";
 
 export default class LandingPage extends React.Component {
   constructor() {
