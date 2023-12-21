@@ -145,8 +145,8 @@ export default class ResultPassion extends Component {
                   <Link to={"/news/" + passion.id}>
                     <b>{passion.name}</b>
                   </Link>{" "}
-                  dengan nilai bobot <b>{resultTopsis.topsisScore},</b> telah
-                  dinyatakan sebagai pilihan terbaik dari semua alternative
+                  dan dinyatakan sebagai pilihan terbaik dari semua sebagai
+                  passion anak anda dari semua pilihan alternative passion
                 </h4>
               </div>
 
